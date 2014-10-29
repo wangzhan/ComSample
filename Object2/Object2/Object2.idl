@@ -1,0 +1,36 @@
+// Object2.idl : IDL source for Object2
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Object2.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(1785AA8E-DBB1-4E36-ACDF-17312FF551E7),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IDFun : IDispatch{
+	[id(1)] HRESULT Add([in] VARIANT v1, [in] VARIANT v2, [out, retval] VARIANT* pVal);
+	[id(2)] HRESULT Lower([in] BSTR bstr, [out, retval] BSTR* pVal);
+};
+[
+	uuid(E84D5501-F16A-4FDA-88B8-596556FCA20B),
+	version(1.0),
+]
+library Object2Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(AA40016D-FA76-4EE1-973C-474EA29AF14D)		
+	]
+	coclass DFun
+	{
+		[default] interface IDFun;
+	};
+};
+

@@ -1,0 +1,26 @@
+HKCR
+{
+	Object2.DFun.1 = s 'DFun Class'
+	{
+		CLSID = s '{AA40016D-FA76-4EE1-973C-474EA29AF14D}'
+	}
+	Object2.DFun = s 'DFun Class'
+	{		
+		CurVer = s 'Object2.DFun.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AA40016D-FA76-4EE1-973C-474EA29AF14D} = s 'DFun Class'
+		{
+			ProgID = s 'Object2.DFun.1'
+			VersionIndependentProgID = s 'Object2.DFun'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{E84D5501-F16A-4FDA-88B8-596556FCA20B}'
+			Version = s '1.0'
+		}
+	}
+}

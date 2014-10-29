@@ -1,0 +1,26 @@
+HKCR
+{
+	ProcOut.Modu.1 = s 'Modu Class'
+	{
+		CLSID = s '{64E440AF-52E5-4149-970A-656074910DFE}'
+	}
+	ProcOut.Modu = s 'Modu Class'
+	{		
+		CurVer = s 'ProcOut.Modu.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {64E440AF-52E5-4149-970A-656074910DFE} = s 'Modu Class'
+		{
+			ProgID = s 'ProcOut.Modu.1'
+			VersionIndependentProgID = s 'ProcOut.Modu'
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{09DA7BE9-E74E-4238-B9EA-056408EF7145}'
+			Version = s '1.0'
+		}
+	}
+}

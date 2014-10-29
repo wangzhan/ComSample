@@ -1,0 +1,38 @@
+// ProcOut.idl : IDL source for ProcOut
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ProcOut.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(56AB6043-23ED-4BA0-87F4-9380E6EE8B65),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IModu : IDispatch{
+	[id(1)] HRESULT Produce([in] LONG nProduce);
+	[id(2)] HRESULT Customer([in] LONG nCustomer);
+	[propget, id(3)] HRESULT CurrentNum([out, retval] LONG* pVal);
+	[propput, id(3)] HRESULT CurrentNum([in] LONG newVal);
+};
+[
+	uuid(09DA7BE9-E74E-4238-B9EA-056408EF7145),
+	version(1.0),
+]
+library ProcOutLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(64E440AF-52E5-4149-970A-656074910DFE)		
+	]
+	coclass Modu
+	{
+		[default] interface IModu;
+	};
+};
+

@@ -1,0 +1,34 @@
+// Object1.idl : IDL source for Object1
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Object1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(46670255-36AD-40D7-88AB-0F34F4D4EC39),
+	pointer_default(unique)
+]
+interface IFunc : IUnknown{
+	[] HRESULT Add([in] LONG a, [in] LONG b, [out] LONG* pC);
+	[] HRESULT CatString([in] BSTR str1, [in] BSTR str2, [out] BSTR* retval);
+};
+[
+	uuid(B651858C-A2A4-4B53-99F0-BAF9168C0E35),
+	version(1.0),
+]
+library Object1Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(12498F74-DA7A-41FC-A6B7-D0CEA3933779)		
+	]
+	coclass Func
+	{
+		[default] interface IFunc;
+	};
+};
+
